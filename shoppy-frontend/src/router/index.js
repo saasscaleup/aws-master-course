@@ -5,7 +5,7 @@ import { useAuthStore } from '@/stores/auth';
 
 import LoginView from '../views/LoginView.vue';
 import RegisterView from '../views/RegisterView.vue';
-import ExpenseView from '../views/ExpenseView.vue';
+import ShoppingListView from '../views/ShoppingListView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -23,13 +23,13 @@ const router = createRouter({
     {
       path: '/',
       name: 'Dashboard',
-      component: ExpenseView,
+      component: ShoppingListView,
       meta: { requiresAuth: true } // Indicates this route requires authentication
     },
     {
-      path: '/expenses',
-      name: 'Expenses',
-      component: ExpenseView,
+      path: '/shopping-list',
+      name: 'Shopping List',
+      component: ShoppingListView,
       meta: { requiresAuth: true } // Indicates this route requires authentication
     },
     {

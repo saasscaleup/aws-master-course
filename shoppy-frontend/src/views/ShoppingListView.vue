@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Expense from '@/components/Expense.vue';
+import Expense from '@/components/ShoppingList.vue';
 
 export default {
   components: {

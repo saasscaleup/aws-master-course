@@ -10,7 +10,10 @@ router.post('/register', (req, res) => {
     const hashedPassword = bcrypt.hashSync(password, 8);
 
     connection.query('INSERT INTO users (email, password) VALUES (?, ?)', [email, hashedPassword], (error, results) => {
-        if (error) return res.status(500).send('Error on the server.');
+        if (error) {
+            console.log(error);
+            return res.status(500).send(error);
+        }
         const token = jwt.sign({ id: results.insertId }, process.env.SECRET, {
             expiresIn: 86400 // expires in 24 hours
         });
