@@ -3,7 +3,6 @@ import { onMounted } from 'vue'
 import { RouterView, useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 
-
 export default {
   setup() {
     const authStore = useAuthStore()
@@ -34,7 +33,9 @@ export default {
       v-if="authStore.isAuthenticated"
     >
       <div class="container-fluid">
-        <a class="navbar-brand" href="/">Shoppy</a>
+        <a class="navbar-brand" href="/">
+          <img src="/shoppy.png" alt="Logo" class="" style="height: 35px" />
+        </a>
         <button
           class="navbar-toggler p-0 border-0"
           type="button"
@@ -47,13 +48,26 @@ export default {
         <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/">Dashboard</a>
+              <a
+                class="nav-link"
+                :class="{ active: $route.path === '/' }"
+                aria-current="page"
+                href="/"
+                >Dashboard</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/shopping-list">Shopping List</a>
+              <a
+                class="nav-link"
+                :class="{ active: $route.path === '/shopping-list' }"
+                href="/shopping-list"
+                >Shopping List</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/about">About</a>
+              <a class="nav-link" :class="{ active: $route.path === '/about' }" href="/about"
+                >About</a
+              >
             </li>
           </ul>
           <!--div class="text-end col-md-4 offset-md-8" v-if="!authStore.isAuthenticated">
