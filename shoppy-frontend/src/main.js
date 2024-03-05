@@ -26,3 +26,9 @@ app.use(createPinia())
 app.use(router)
 
 app.mount('#app')
+
+if (document.querySelector('#navbarSideCollapse')!=null){
+  document.querySelector('#navbarSideCollapse').addEventListener('click', function () {
+    document.querySelector('.offcanvas-collapse').classList.toggle('open')
+  })
+}

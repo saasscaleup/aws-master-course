@@ -53,6 +53,7 @@
             </div>
           </div>
         </div>
+        <p class="text-center text-muted mt-3">Scale-Up Saas(DBC) &copy; 2024</p>
 
         <!-- Bootstrap Modal for Editing Item -->
         <!-- Make sure to include the required Bootstrap modal HTML structure and JavaScript to initialize the modal -->
@@ -315,6 +316,8 @@ export default {
 .custom-checkbox {
   height: 35px;
   width: 35px;
+  cursor: pointer;
+
 }
 .custom-checkbox:checked {
   height: 35px;

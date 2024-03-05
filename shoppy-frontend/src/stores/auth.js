@@ -25,6 +25,7 @@ export const useAuthStore = defineStore('auth', {
       } catch (error) {
         this.status = 'error';
         console.error('Login error:', error);
+        throw error; // Throw the error to be handled in the component
       }
     },
     async register(authData) {
@@ -41,6 +42,7 @@ export const useAuthStore = defineStore('auth', {
         } catch (error) {
           this.status = 'error';
           console.error('Registration error:', error);
+          throw error; // Throw the error to be handled in the component
         }
     },
     logout() {

@@ -14,11 +14,13 @@ const router = createRouter({
       path: '/login',
       name: 'Login',
       component: LoginView,
+      meta: { requiresAuth: false } // Indicates this route requires authentication
     },
     {
       path: '/register',
       name: 'Register',
       component: RegisterView,
+      meta: { requiresAuth: false } // Indicates this route requires authentication
     },
     {
       path: '/',
@@ -53,7 +55,9 @@ router.beforeEach((to, from, next) => {
   const authStore = useAuthStore();
   if (to.matched.some(record => record.meta.requiresAuth) && !authStore.isAuthenticated) {
     next('/login');
-  } else {
+  } else if (to.matched.some(record => !record.meta.requiresAuth) && authStore.isAuthenticated){
+    next('/');
+  }else{
     next();
   }
 });
