@@ -36,7 +36,7 @@
               />
               <div>
                 <div :class="{ completed: item.completed }">
-                  {{ item.name }} - {{ item.quantity }} - {{ item.completed }}
+                  {{ item.name }} ({{ item.quantity }})
                 </div>
                 <div class="text-muted small" :class="{ completed: item.completed }">
                   {{ timeAgo(item.created_at) }}
