@@ -1,6 +1,6 @@
-CREATE DATABASE myapp;
+CREATE DATABASE shoppy;
 
-USE myapp;
+USE shoppy;
 
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
