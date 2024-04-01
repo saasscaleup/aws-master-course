@@ -42,18 +42,9 @@ npm -v
 sudo apt install nginx
 ```
 
-ln -s /etc/nginx/sites-available/shoppy.conf /etc/nginx/sites-enabled/
-
-sudo nginx -t
-sudo systemctl restart nginx
-
-// Install mysql
+### Step 4 - Install mysql
 sudo apt install mysql-server
-sudo mysql
-CREATE USER 'your_user'@'localhost' IDENTIFIED BY 'your_password';
-GRANT ALL PRIVILEGES ON *.* TO 'your_user'@'%' WITH GRANT OPTION;
-FLUSH PRIVILEGES;
-EXIT;
+
 
 ## Part 1.6 - Configuration
 
@@ -63,17 +54,70 @@ In this part we will clone our Shoppy web application and configure our Web Appl
 2. Set Nginx
 3. Set Mysql
 
-// clone repository
-git clone <>
-npm install
-npm install
+### Step 1 - Setup Shoppy WebApp
 
-// create jwt secret and update .env file
+
+```sh
+cd /home/ubuntu
+```
+
+```sh
+git clone https://github.com/saasscaleup/aws-master-course.git shoppy
+```sh
+
+#### Setup Backend
+
+```sh
+cd /home/ubuntu/shoppy/shoppy-backend
+```
+```sh
+npm install
+```
+
+##### Create jwt secret and update .env file
+```sh
 node
-equire('crypto').randomBytes(64).toString('hex');
+```
+```sh
+require('crypto').randomBytes(64).toString('hex');
+```
 
-// Update frontend .env file with the right url
-.env
+copy token and update .env file
+
+#### Setup Frontend
+
+```sh
+cd /home/ubuntu/shoppy/shoppy-frontend
+```
+```sh
+npm install
+```
+
+##### Update frontend .env file with the right url
+```sh
+nano .env
+```
+
+### Setup Nginx
 
 // add access 
+```sh
 sudo gpasswd -a www-data ubuntu
+
+ln -s /etc/nginx/sites-available/shoppy.conf /etc/nginx/sites-enabled/
+
+sudo nginx -t
+sudo systemctl restart nginx
+```
+
+### Setup MySQL
+
+```sh
+sudo mysql
+CREATE USER 'your_user'@'localhost' IDENTIFIED BY 'your_password';
+GRANT ALL PRIVILEGES ON *.* TO 'your_user'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+EXIT;
+```
+
+
