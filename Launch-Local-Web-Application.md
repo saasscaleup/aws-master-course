@@ -1,6 +1,7 @@
 # Launch-Local-Web-Application.md | Install Shoppy
 
-## Part 1.5 - Install Requirements
+
+## Part 1.5 [Step 1️⃣] - Install Requirements
 
 In this part we are going to update Ec2 instance and install Requirements
 
@@ -46,7 +47,8 @@ sudo apt install nginx
 sudo apt install mysql-server
 
 
-## Part 1.6 - Configuration
+
+## Part 1.6 [Step 2️⃣] - Configuration
 
 In this part we will clone our Shoppy web application and configure our Web Application services
 
@@ -100,17 +102,28 @@ nano .env
 
 ### Setup Nginx
 
-// add access 
+copy nginx conf file
+```sh
+cp /home/ubuntu/shoppy/shoppy.conf /etc/nginx/sites-available/
+```
+
+Add access to nginx 
 ```sh
 sudo gpasswd -a www-data ubuntu
+```
 
+```sh
 ln -s /etc/nginx/sites-available/shoppy.conf /etc/nginx/sites-enabled/
+```
 
+```sh
 sudo nginx -t
 sudo systemctl restart nginx
 ```
 
 ### Setup MySQL
+
+#### Create MySQL user
 
 ```sh
 sudo mysql
@@ -118,6 +131,17 @@ CREATE USER 'your_user'@'localhost' IDENTIFIED BY 'your_password';
 GRANT ALL PRIVILEGES ON *.* TO 'your_user'@'%' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 EXIT;
+```
+
+#### Init Database
+
+```sh
+cd /home/ubuntu/shoppy/shoppy-backend
+```
+
+```sh
+sudo mysql
+source database.sql;
 ```
 
 
