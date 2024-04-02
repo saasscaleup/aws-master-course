@@ -95,6 +95,12 @@ cd /home/ubuntu/shoppy/shoppy-frontend
 npm install
 ```
 
+Create dist files
+
+```sh
+npm run build
+```
+
 ##### Update frontend .env file with the right url
 ```sh
 nano .env
