@@ -65,7 +65,7 @@ cd /home/ubuntu
 
 ```sh
 git clone https://github.com/saasscaleup/aws-master-course.git shoppy
-```sh
+```
 
 #### Setup Backend
 
