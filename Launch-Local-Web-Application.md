@@ -102,8 +102,17 @@ npm run build
 ```
 
 ##### Update frontend .env file with the right url
+
+```sh
+cp .env.local
+```
+
 ```sh
 nano .env
+```
+
+```sh
+VITE_APP_API_BASE_URL=http://localhost:3000/api
 ```
 
 ### Setup Nginx
