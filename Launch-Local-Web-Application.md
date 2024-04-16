@@ -126,6 +126,9 @@ Add access to nginx
 ```sh
 sudo gpasswd -a www-data ubuntu
 ```
+```sh
+rm /etc/nginx/sites-enabled/default
+```
 
 ```sh
 ln -s /etc/nginx/sites-available/shoppy.conf /etc/nginx/sites-enabled/
