@@ -34,7 +34,7 @@ export default {
     >
       <div class="container-fluid">
         <a class="navbar-brand" href="/">
-          <img src="/shoppy.png" alt="Logo" class="" style="height: 35px" />
+          <img src="/src/shoppy.png" alt="Logo" class="" style="height: 35px" />
         </a>
         <button
           class="navbar-toggler p-0 border-0"
