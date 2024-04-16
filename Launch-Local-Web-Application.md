@@ -1,4 +1,4 @@
-# Launch-Local-Web-Application.md | Install Shoppy
+# Launch-Local-Web-Application.md - Monolithic Architecture | Install Shoppy
 
 
 ## Part 1.5 [Step 1️⃣] - Install Requirements
