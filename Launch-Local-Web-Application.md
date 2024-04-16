@@ -95,12 +95,6 @@ cd /home/ubuntu/shoppy/shoppy-frontend
 npm install
 ```
 
-Create dist files
-
-```sh
-npm run build
-```
-
 ##### Update frontend .env file with the right url
 
 ```sh
@@ -113,6 +107,12 @@ nano .env
 
 ```sh
 VITE_APP_API_BASE_URL=http://localhost:3000/api
+```
+
+Create dist files
+
+```sh
+npm run build
 ```
 
 ### Setup Nginx
