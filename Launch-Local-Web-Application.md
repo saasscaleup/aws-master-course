@@ -76,17 +76,6 @@ In this part we will clone our Shoppy web application and configure our Web Appl
 ### Setup 1 - Set MySQL
 
 
-#### Init Database
-
-```sh
-cd /home/ubuntu/shoppy/shoppy-backend
-```
-
-```sh
-sudo mysql
-source database.sql;
-```
-
 #### Create MySQL user
 
 ```sh
@@ -121,15 +110,15 @@ cd /home/ubuntu/shoppy/shoppy-backend
 npm install
 ```
 
-##### Create jwt secret and update .env file
-```sh
-node
-```
-```sh
-require('crypto').randomBytes(64).toString('hex');
-```
+Check your server Ip with port 3000
+http://server_ip:3000
 
-copy token and update .env file
+##### Init Database
+
+```sh
+sudo mysql
+source database.sql;
+```
 
 ##### update backend .env MySQL credentials
 
@@ -143,6 +132,22 @@ DB_USER=shoppy_user
 DB_PASS=12345678
 DB_NAME=shoppy
 DB_PORT=3306
+```
+
+##### Create jwt secret and update .env file
+
+```sh
+node
+```
+
+```sh
+require('crypto').randomBytes(64).toString('hex');
+```
+
+copy token and update .env file
+
+```
+secret=<your-token>
 ```
 
 #### Setup Frontend
