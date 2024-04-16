@@ -146,7 +146,7 @@ sudo systemctl restart nginx
 ```sh
 sudo mysql
 CREATE USER 'your_user'@'localhost' IDENTIFIED BY 'your_password';
-GRANT ALL PRIVILEGES ON *.* TO 'your_user'@'%' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON *.* TO 'your_user'@'localhost' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 EXIT;
 ```
@@ -162,4 +162,19 @@ sudo mysql
 source database.sql;
 ```
 
+#### update backend .env MySQL credentials
+
+```sh
+nano .env
+```
+
+```
+DB_HOST=localhost
+DB_USER=shoppy
+DB_PASS=12345678
+DB_NAME=shoppy
+DB_PORT=3306
+```
+
+### Check everything is working
 
