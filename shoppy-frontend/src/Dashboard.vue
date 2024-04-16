@@ -25,7 +25,7 @@ export default {
       class="d-block px-3 py-2 text-center text-bold skippy"
       style="background: linear-gradient(to right, #00b09b, #96c93d)"
     >
-      <a href="#" class="text-black text-decoration-none">Three-Tier Architecture!</a>
+      <a href="#" class="text-black text-decoration-none">Monolithic Architecture!</a>
     </div>
     <nav
       class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark"
