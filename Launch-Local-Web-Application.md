@@ -98,7 +98,7 @@ npm install
 ##### Update frontend .env file with the right url
 
 ```sh
-cp .env.local
+cp .env.copy .env
 ```
 
 ```sh
