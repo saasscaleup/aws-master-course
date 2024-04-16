@@ -28,7 +28,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 nvm install --lts # Latest stable node js server version
 ```
 
-check if Installed
+Check if Installed
 
 ```sh
 node -v
@@ -37,27 +37,67 @@ node -v
 npm -v
 ```
 
+```sh
+node
+```
+
 ### Step 3 - Install NGINX
 
 ```sh
 sudo apt install nginx
 ```
 
+Check if Installed
+
+```sh
+sudo systemctl status nginx
+```
+
+Go to server IP address and check =...
+
 ### Step 4 - Install mysql
+
 sudo apt install mysql-server
 
+Check if Installed
 
+```sh
+sudo systemctl status mysql
+```
 
 ## Part 1.6 [Step 2️⃣] - Configuration
 
 In this part we will clone our Shoppy web application and configure our Web Application services
 
-1. Git clone Shoppy repository
-2. Set Nginx
-3. Set Mysql
+1. Set Mysql
+2. Git clone Shoppy repository
+3. Set Nginx
 
-### Step 1 - Setup Shoppy WebApp
+### Setup 1 - Set MySQL
 
+
+#### Init Database
+
+```sh
+cd /home/ubuntu/shoppy/shoppy-backend
+```
+
+```sh
+sudo mysql
+source database.sql;
+```
+
+#### Create MySQL user
+
+```sh
+sudo mysql
+CREATE USER 'shoppy_user'@'localhost' IDENTIFIED BY '12345678';
+GRANT ALL PRIVILEGES ON *.* TO 'shoppy_user'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+EXIT;
+```
+
+### Step 2 - Setup Shoppy WebApp
 
 ```sh
 cd /home/ubuntu
@@ -67,11 +107,16 @@ cd /home/ubuntu
 git clone https://github.com/saasscaleup/aws-master-course.git shoppy
 ```
 
+```sh
+git checkout monolithic-architecture
+```
+
 #### Setup Backend
 
 ```sh
 cd /home/ubuntu/shoppy/shoppy-backend
 ```
+
 ```sh
 npm install
 ```
@@ -85,6 +130,20 @@ require('crypto').randomBytes(64).toString('hex');
 ```
 
 copy token and update .env file
+
+##### update backend .env MySQL credentials
+
+```sh
+nano .env
+```
+
+```
+DB_HOST=localhost
+DB_USER=shoppy_user
+DB_PASS=12345678
+DB_NAME=shoppy
+DB_PORT=3306
+```
 
 #### Setup Frontend
 
@@ -109,7 +168,7 @@ nano .env
 VITE_APP_API_BASE_URL=http://localhost:3000/api
 ```
 
-Create dist files
+##### Create dist files
 
 ```sh
 npm run build
@@ -118,63 +177,36 @@ npm run build
 ### Setup Nginx
 
 copy nginx conf file
+
 ```sh
-cp /home/ubuntu/shoppy/shoppy.conf /etc/nginx/sites-available/
+sudo cp /home/ubuntu/shoppy/shoppy.conf /etc/nginx/sites-available/
 ```
 
 Add access to nginx 
+
 ```sh
 sudo gpasswd -a www-data ubuntu
 ```
-```sh
-rm /etc/nginx/sites-enabled/default
-```
+
+Remove default config
 
 ```sh
-ln -s /etc/nginx/sites-available/shoppy.conf /etc/nginx/sites-enabled/
+sudo rm /etc/nginx/sites-enabled/default
 ```
+
+Enable Shoppy config 
+```sh
+sudo ln -s /etc/nginx/sites-available/shoppy.conf /etc/nginx/sites-enabled/
+```
+
+Check and restart Nginx service
 
 ```sh
 sudo nginx -t
 sudo systemctl restart nginx
 ```
 
-### Setup MySQL
-
-#### Create MySQL user
-
-```sh
-sudo mysql
-CREATE USER 'your_user'@'localhost' IDENTIFIED BY 'your_password';
-GRANT ALL PRIVILEGES ON *.* TO 'your_user'@'localhost' WITH GRANT OPTION;
-FLUSH PRIVILEGES;
-EXIT;
-```
-
-#### Init Database
-
-```sh
-cd /home/ubuntu/shoppy/shoppy-backend
-```
-
-```sh
-sudo mysql
-source database.sql;
-```
-
-#### update backend .env MySQL credentials
-
-```sh
-nano .env
-```
-
-```
-DB_HOST=localhost
-DB_USER=shoppy
-DB_PASS=12345678
-DB_NAME=shoppy
-DB_PORT=3306
-```
-
 ### Check everything is working
+1. Go to server Ip and check that Shoppy frontend is loading
+2. Run Shoppy backend server and check that Database and Shoopy app are working
 
