@@ -57,7 +57,9 @@ Go to server IP address and check =...
 
 ### Step 4 - Install mysql
 
+```sh
 sudo apt install mysql-server
+```
 
 Check if Installed
 
@@ -97,6 +99,10 @@ git clone https://github.com/saasscaleup/aws-master-course.git shoppy
 ```
 
 ```sh
+cd /home/ubuntu/shoppy
+```
+
+```sh
 git checkout monolithic-architecture
 ```
 
@@ -123,6 +129,10 @@ source database.sql;
 ##### update backend .env MySQL credentials
 
 ```sh
+cp .env.copy .env
+```
+
+```sh
 nano .env
 ```
 
@@ -147,7 +157,7 @@ require('crypto').randomBytes(64).toString('hex');
 copy token and update .env file
 
 ```
-secret=<your-token>
+SECRET=<your-token>
 ```
 
 #### Setup Frontend
@@ -155,6 +165,7 @@ secret=<your-token>
 ```sh
 cd /home/ubuntu/shoppy/shoppy-frontend
 ```
+
 ```sh
 npm install
 ```
@@ -185,6 +196,12 @@ copy nginx conf file
 
 ```sh
 sudo cp /home/ubuntu/shoppy/shoppy.conf /etc/nginx/sites-available/
+```
+
+Update server name
+
+```sh
+sudo nano /home/ubuntu/shoppy/shoppy.conf
 ```
 
 Add access to nginx 
