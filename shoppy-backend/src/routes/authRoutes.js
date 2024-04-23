@@ -48,7 +48,7 @@ router.post("/login", (req, res) => {
 
       if (!passwordIsValid) {
         console.log("Invalid password for user:", email);
-        return res.status(401).send({ auth: false, token: null });
+        return res.status(401).send("Invalid password for user: "+email);
       }
 
       const token = jwt.sign({ id: user.id }, process.env.SECRET, {
