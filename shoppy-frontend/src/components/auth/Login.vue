@@ -22,11 +22,13 @@ export default {
         }
       } catch (error) {
           // Check if the error is from an Axios response
-          if (error.response.data) {
-            errorMessage.value = error.response.data
-          } else {
-            errorMessage.value = 'An error occurred during sign in.'
-          }
+        if (error.response.data.sqlMessage) {
+          registrationError.value = error.response.data.sqlMessage
+        } else if (error.response.data) {
+          registrationError.value = error.response.data
+        } else {
+          registrationError.value = 'An error occurred during sign in.'
+        }
 
           Toastify({
             text: errorMessage.value,

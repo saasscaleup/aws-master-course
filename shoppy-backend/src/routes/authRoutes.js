@@ -40,7 +40,7 @@ router.post("/login", (req, res) => {
       }
       if (users.length === 0) {
         console.log("No user found with email:", email);
-        return res.status(404).send("No user found.");
+        return res.status(404).send("No user found with email: "+email);
       }
 
       const user = users[0];
