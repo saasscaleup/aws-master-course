@@ -24,6 +24,8 @@ export default {
           // Check if the error is from an Axios response
           if (error.response.data) {
             errorMessage.value = error.response.data
+          }else if(error.response.data.sqlMessage){
+            errorMessage.value = error.response.data.sqlMessage
           } else {
             errorMessage.value = 'An error occurred during sign in.'
           }

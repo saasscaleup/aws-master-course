@@ -4,7 +4,6 @@ import { useAuthStore } from '@/stores/auth'
 import { useRouter } from 'vue-router' // Import useRouter
 import Toastify from 'toastify-js'
 
-
 export default {
   setup() {
     const email = ref('')
@@ -21,10 +20,12 @@ export default {
         }
       } catch (error) {
         // Check if the error is from an Axios response
-        if (error.response.data.sqlMessage) {
+        if (error.response.data) {
+          registrationError.value = error.response.data
+        } else if (error.response.data.sqlMessage) {
           registrationError.value = error.response.data.sqlMessage
         } else {
-          registrationError.value = 'An error occurred during registration.'
+          registrationError.value = 'An error occurred during sign in.'
         }
 
         Toastify({

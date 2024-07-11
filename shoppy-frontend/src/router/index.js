@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 
 import { useAuthStore } from '@/stores/auth';
 
@@ -33,11 +32,6 @@ const router = createRouter({
       name: 'Shopping List',
       component: ShoppingListView,
       meta: { requiresAuth: true } // Indicates this route requires authentication
-    },
-    {
-      path: '/',
-      name: 'home',
-      component: HomeView
     },
     {
       path: '/about',
