@@ -25,7 +25,7 @@ export default {
       class="d-block px-3 py-2 text-center text-bold skippy"
       style="background: linear-gradient(to right, #00b09b, #96c93d)"
     >
-      <a href="#" class="text-black text-decoration-none">Monolithic Architecture!</a>
+      <a href="#" class="text-black text-decoration-none">Three(3) Tier Architecture!</a>
     </div>
     <nav
       class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark"
@@ -67,6 +67,11 @@ export default {
             <li class="nav-item">
               <a class="nav-link" :class="{ active: $route.path === '/about' }" href="/about"
                 >About</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" :class="{ active: $route.path === '/cpu-load' }" href="/cpu-load/10"
+                >Cpu Load</a
               >
             </li>
           </ul>

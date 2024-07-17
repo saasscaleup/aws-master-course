@@ -5,6 +5,7 @@ import { useAuthStore } from '@/stores/auth';
 import LoginView from '../views/LoginView.vue';
 import RegisterView from '../views/RegisterView.vue';
 import ShoppingListView from '../views/ShoppingListView.vue';
+import CpuLoadView from '../views/CpuLoadView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -41,6 +42,12 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/AboutView.vue'),
       meta: { requiresAuth: true } // Indicates this route requires authentication
+    },
+    {
+      path: '/cpu-load/:n',
+      name: 'Cpu Load',
+      component: CpuLoadView,
+      meta: { requiresAuth: true } // Indicates this route does not require authentication
     }
   ]
 })
