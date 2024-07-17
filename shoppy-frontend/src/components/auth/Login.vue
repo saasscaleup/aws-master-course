@@ -10,7 +10,7 @@ export default {
     const password = ref('');
     const router = useRouter(); // Use useRouter to get the router instance
     const authStore = useAuthStore();
-    const errorMessage = ref('') // Reactive property for registration error messages
+    const loginError = ref('') // Reactive property for registration error messages
 
     const login = async () => {
       try {
@@ -23,15 +23,15 @@ export default {
       } catch (error) {
           // Check if the error is from an Axios response
         if (error.response.data.sqlMessage) {
-          registrationError.value = error.response.data.sqlMessage
+          loginError.value = error.response.data.sqlMessage
         } else if (error.response.data) {
-          registrationError.value = error.response.data
+          loginError.value = error.response.data
         } else {
-          registrationError.value = 'An error occurred during sign in.'
+          loginError.value = 'An error occurred during sign in.'
         }
 
           Toastify({
-            text: errorMessage.value,
+            text: loginError.value,
             gravity: 'bottom',
             position: 'right',
             close: true,
