@@ -19,8 +19,10 @@ export default {
           router.push('/')
         }
       } catch (error) {
+        if (error.message != undefined && error.message=='Network Error')
+          lregistrationError.value = 'Network Error!\n Check if Backend server is available!'
         // Check if the error is from an Axios response
-        if (error.response.data.sqlMessage) {
+        else if (error.response.data.sqlMessage) {
           registrationError.value = error.response.data.sqlMessage
         } else if (error.response.data) {
           registrationError.value = error.response.data
