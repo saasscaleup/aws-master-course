@@ -36,7 +36,7 @@ app.get('/health', (req, res) => {
 });
 
 // Database connection Check Route
-app.get('/database-health', (req, res) => {
+app.get('/api/database-health', (req, res) => {
     connection.query(
         "SELECT COUNT(*) as total_users FROM users",
         (error, results) => {
@@ -52,7 +52,7 @@ app.get('/database-health', (req, res) => {
 });
 
 // CPU-intensive algorithm 
-app.get('/cpu-load/:n', (req, res) => {
+app.get('/api/cpu-load/:n', (req, res) => {
 
     const n = parseInt(req.params.n, 10); // Parse the parameter as an integer
 

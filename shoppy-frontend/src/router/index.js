@@ -6,6 +6,7 @@ import LoginView from '../views/LoginView.vue';
 import RegisterView from '../views/RegisterView.vue';
 import ShoppingListView from '../views/ShoppingListView.vue';
 import CpuLoadView from '../views/CpuLoadView.vue';
+import DatabaseHealthView from '../views/DatabaseHealthView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -42,6 +43,12 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/AboutView.vue'),
       meta: { requiresAuth: true } // Indicates this route requires authentication
+    },
+    {
+      path: '/database-health',
+      name: 'Database Health',
+      component: DatabaseHealthView,
+      meta: { requiresAuth: true } // Indicates this route does not require authentication
     },
     {
       path: '/cpu-load/:n',

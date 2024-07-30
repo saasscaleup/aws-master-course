@@ -69,10 +69,33 @@ export default {
                 >About</a
               >
             </li>
-            <li class="nav-item">
-              <a class="nav-link" :class="{ active: $route.path === '/cpu-load' }" href="/cpu-load/10"
-                >Cpu Load</a
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="dropdown03"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Admin</a
               >
+              <ul class="dropdown-menu" aria-labelledby="dropdown03">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    :class="{ active: $route.path === '/database-health' }"
+                    href="/database-health"
+                    >Database Health</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class=" dropdown-item"
+                    :class="{ active: $route.path.includes('cpu-load') }"
+                    href="/cpu-load/42"
+                    >Cpu Load</a
+                  >
+                </li>
+              </ul>
             </li>
           </ul>
           <!--div class="text-end col-md-4 offset-md-8" v-if="!authStore.isAuthenticated">
