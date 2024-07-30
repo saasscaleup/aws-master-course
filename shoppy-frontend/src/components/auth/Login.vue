@@ -21,8 +21,11 @@ export default {
           router.push('/');
         }
       } catch (error) {
+        
+        if (error.message != undefined && error.message=='Network Error')
+          loginError.value = 'Network Error!\n Check if Backend server is available!'
           // Check if the error is from an Axios response
-        if (error.response.data.sqlMessage) {
+        else if (error.response.data.sqlMessage) {
           loginError.value = error.response.data.sqlMessage
         } else if (error.response.data) {
           loginError.value = error.response.data

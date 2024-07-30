@@ -150,7 +150,8 @@ export default {
           completed: item.completed === 1
         }))
       } catch (error) {
-        console.error('Failed to fetch items:', error)
+        console.error('Failed to fetch items:', error);
+        showToastify('Failed to fetch items: ', error, 'error')
       }
     }
 
@@ -180,6 +181,7 @@ export default {
         fetchItems()
       } catch (error) {
         console.error('Failed to delete item:', error)
+        showToastify('Failed to delete item: ', error, 'error')
       }
     }
 
@@ -198,6 +200,7 @@ export default {
         modal.hide()
       } catch (error) {
         console.error('Failed to update item:', error)
+        showToastify('Failed to update item: ', error, 'error')
       }
     }
 
