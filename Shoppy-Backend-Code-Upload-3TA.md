@@ -1,4 +1,4 @@
-# Shoppy-Backend-Code-Setup.md - 3 Tier Architecture
+# Shoppy-Backend-Code-Upload.md - 3 Tier Architecture
 
 
 ## Part 3.1 [Step 1️⃣] - Upload Shoppy backend to S3
