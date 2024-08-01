@@ -75,7 +75,7 @@ SECRET=<your-token>
 
 ```sh
 cd /home/cloudshell-user/aws-master-course
-``
+```
 
 ```sh
 aws s3 cp shoppy-backend s3://BUCKET_NAME/shoppy-backend/ --recursive
