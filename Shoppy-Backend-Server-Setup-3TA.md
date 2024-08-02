@@ -7,7 +7,8 @@ In this part we are going install mysql client and download shoppy-backend code 
 
 1. Upgrade Ubuntu Server
 2. Install mysql-client
-3. Download shoppy-backend code from S3
+3. Install awscli
+4. Download shoppy-backend code from S3
 
 ### Step 1 - Update ubuntu server
 
@@ -24,7 +25,13 @@ sudo apt upgrade
 sudo apt install mysql-client
 ```
 
-### Step 3 - Download shoppy-backend code from S3
+### Step 3 - Install awscli
+
+```sh
+sudo apt install awscli
+```
+
+### Step 4 - Download shoppy-backend code from S3
 
 ```sh
 cd /home/ubuntu
