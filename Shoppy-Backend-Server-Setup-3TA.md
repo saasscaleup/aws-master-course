@@ -141,6 +141,18 @@ In this part we are going to:
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 ```
 
+After running this, you will see a message similar to this.
+```
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+```
+
+**DO NOT run the above command**, rather you should copy and past the command in the output you see in your own terminal. 
+
+
+After you copied and pasted the command and pressed enter. You should run this next 
+
 ```sh
 nvm install --lts # Latest stable node js server version
 ```
@@ -157,10 +169,6 @@ npm -v
 ### Step 2 - Install and Configure Node.js package - PM2
 
 ```sh
-npm install -g pm2 # may require sudo
-```
-
-```sh
 cd /home/ubuntu/shoppy-backend
 ```
 
@@ -175,7 +183,7 @@ cd src
 Start server!
 
 ```sh
-pm2 start server.js --name=shoppy-backend-server
+export $(cat .env | xargs) && pm2 start src/server.js --name=shoppy-backend-server
 ```
 
 Check list of pm2 services 
@@ -188,16 +196,14 @@ Check logs of pm2 services
 pm2 logs
 ```
 
-```sh
-pm2 start server.js --name=shoppy-backend-server
-```
 Right now, pm2 is just making sure our app stays running when we leave the SSM session. However, if the server is interrupted for some reason, we still want the app to start and keep running. This is also important for the AMI we will create:
 
 ```sh
-pm2 startup # 
+pm2 startup 
 ```
 
 After running this you will see a message similar to this.
+
 ```
 [PM2] To setup the Startup Script, copy/paste the following command:
 sudo env PATH=$PATH:/home/ubuntu/.nvm/versions/node/v20.0.0/bin /home/ubuntu/.nvm/versions/node/v20.0.0/lib/node_modules/pm2/bin/pm2 startup systemd -u ubuntu —hp /home/ubuntu
