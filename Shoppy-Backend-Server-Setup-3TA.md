@@ -169,6 +169,10 @@ npm -v
 ### Step 2 - Install and Configure Node.js package - PM2
 
 ```sh
+npm install -g pm2
+```
+
+```sh
 cd /home/ubuntu/shoppy-backend
 ```
 
