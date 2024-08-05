@@ -180,11 +180,8 @@ cd /home/ubuntu/shoppy-backend
 npm install
 ```
 
-```sh
-cd src
-```
 
-Start server!
+**Start server!**
 
 ```sh
 export $(cat .env | xargs) && pm2 start src/server.js --name=shoppy-backend-server
