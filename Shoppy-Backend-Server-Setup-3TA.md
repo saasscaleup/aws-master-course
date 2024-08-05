@@ -108,6 +108,12 @@ cd /home/ubuntu/shoppy-backend
 mysql -u <db-username> -h <rds-endpoint-url> -p
 ```
 
+### Step 2 - Create Database and tables
+
+```sh
+source database.sql;
+```
+
 ```sh
 show databases;
 ```
@@ -118,12 +124,6 @@ use shoppy;
 
 ```sh
 show tables;
-``
-
-### Step 2 - Create Database and tables
-
-```sh
-source database.sql;
 ```
 
 <hr></hr>
