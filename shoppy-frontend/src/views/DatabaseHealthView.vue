@@ -21,8 +21,9 @@
       const loading = ref(true)
       const error = ref(null)
   
-      const API_URL = import.meta.env.VITE_APP_API_BASE_URL + '/database-health' // Adjust this URL to your API endpoint
-  
+      //const API_URL = import.meta.env.VITE_APP_API_BASE_URL + '/database-health' // Adjust this URL to your API endpoint
+      const API_URL = '/api/database-health' // Adjust this URL to your API endpoint
+
       const fetchDatabaseHealth = async () => {
         loading.value = true
         error.value = null

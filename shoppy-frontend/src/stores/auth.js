@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 import axios from 'axios';
 
-const API_BASE_URL = import.meta.env.VITE_APP_API_BASE_URL
+const API_BASE_URL = '/api/auth';
 
 export const useAuthStore = defineStore('auth', {
   state: () => ({
@@ -16,7 +16,7 @@ export const useAuthStore = defineStore('auth', {
         console.log('login event');
       try {
         this.status = 'loading';
-        const response = await axios.post(API_BASE_URL+"/auth/login", credentials);
+        const response = await axios.post(API_BASE_URL+"/login", credentials);
         const token = response.data.token;
         localStorage.setItem('token', token);
         this.token = token;
@@ -33,7 +33,7 @@ export const useAuthStore = defineStore('auth', {
         console.log('register event');
         try {
           this.status = 'loading';
-          const response = await axios.post(API_BASE_URL+"/auth/register", authData);
+          const response = await axios.post(API_BASE_URL+"/register", authData);
           const token = response.data.token; // Assuming your backend also returns a token upon registration
           localStorage.setItem('token', token);
           this.token = token;

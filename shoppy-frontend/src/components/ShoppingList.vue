@@ -118,7 +118,8 @@ export default {
     const editItemData = ref({})
     const showError = ref('')
 
-    const API_URL = import.meta.env.VITE_APP_API_BASE_URL + '/items' // Adjust this URL to your API endpoint
+    //const API_URL = import.meta.env.VITE_APP_API_BASE_URL + '/items' // Adjust this URL to your API endpoint
+    const API_URL = '/api/items' // Adjust this URL to your API endpoint
 
     const showToastify = (message, type = 'success') => {
       let color = ''

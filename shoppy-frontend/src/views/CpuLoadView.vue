@@ -22,7 +22,8 @@ export default {
     const error = ref(null)
     const n = ref(parseInt(route.params.n, 10))
 
-    const API_URL = import.meta.env.VITE_APP_API_BASE_URL + '/cpu-load' // Adjust this URL to your API endpoint
+    // const API_URL = import.meta.env.VITE_APP_API_BASE_URL + '/cpu-load' // Adjust this URL to your API endpoint
+    const API_URL = '/api/cpu-load' // Adjust this URL to your API endpoint
 
     const fetchFibonacci = async () => {
       loading.value = true
