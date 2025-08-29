@@ -53,7 +53,7 @@ DB_NAME=<RDS-DATABASE-NAME>
 DB_PORT=3306
 ```
 
-Then save the file with `ctrl+s` or `command+s`
+Then save the file with `ctrl+x` or `command+x` and `y`
 
 #### Create jwt secret and update .env file
 
